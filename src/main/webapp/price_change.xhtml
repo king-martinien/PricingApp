@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="jakarta.faces.core"
+    xmlns:h="jakarta.faces.html">
+    <h:head>
+        <title>Price Change</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            Today's price change : $
+            <h:outputText value="#{pricing.todaysPriceChange}"/>
+            <h:commandButton value='Lookup' actionListener="#{pricing.lookupPriceChange()}"/>
+            <br/><br/>
+
+            Item : 
+            <h:selectOneMenu value="#{pricing.selectedItem}">
+                <f:selectItem itemValue='Item01' itemLabel="Item 1"/>
+                <f:selectItem itemValue='Item02' itemLabel="Item 2"/>
+                <f:selectItem itemValue='Item03' itemLabel="Item 3"/>
+            </h:selectOneMenu>
+            <br/><br/>
+
+            <h:commandButton value="Apply price change" actionListener="#{pricing.applyPriceChange()}"/>
+            <br/><br/>
+
+            Price changed from : $
+            <h:outputText value="#{pricing.oldPrice}"/> to
+            <h:outputText value="#{pricing.newPrice}"/>
+        </h:form>
+    </h:body>
+</html>
